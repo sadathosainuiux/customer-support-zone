@@ -88,7 +88,7 @@ function App() {
             )}
             onAddToTaskStatus={handleAddToTaskStatus}
           />
-         <TaskStatus
+         <TaskStatus 
             inProgressTasks={inProgressTasks}
             resolvedTasks={resolvedTasks}
             onResolve={handleResolve}

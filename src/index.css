@@ -367,6 +367,7 @@ body {
 
 .task-item .task-actions .btn-resolve:hover {
   background-color: #bbf7d0;
+  color: #15803d;
 }
 
 .task-item .task-actions .btn-remove {
@@ -376,6 +377,7 @@ body {
 
 .task-item .task-actions .btn-remove:hover {
   background-color: #fecaca;
+  color: #b91c1c;
 }
 
 /* Footer */
@@ -481,7 +483,8 @@ body {
   }
 
   .main-content-grid {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column-reverse;
   }
 
   .footer-grid {
