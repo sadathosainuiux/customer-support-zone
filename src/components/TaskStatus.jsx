@@ -14,13 +14,13 @@ const TaskStatus = ({
                 <div>
                     {inProgressTasks.map((task) => (
                         <div className="task-item" key={task.id}>
-                            <span className="task-item-title">{task.title}</span>
+                            <div className="task-item-title">{task.title}</div>
                             <div className="task-actions">
                                 <button
                                     className="btn-resolve"
                                     onClick={() => onResolve(task.id)}
                                 >
-                                    ✓ Resolve
+                                    ✓ Complete
                                 </button>
                                 <button
                                     className="btn-remove"

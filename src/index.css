@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @plugin "daisyui" {
   themes: light;
 }
@@ -34,11 +35,43 @@ body {
   min-height: 4rem;
 }
 
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 4rem;
+}
+
+.navbar-logo {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .navbar-custom .nav-link {
   color: #cbd5e1;
   font-size: 0.875rem;
   font-weight: 500;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .navbar-custom .nav-link:hover {
@@ -94,7 +127,7 @@ body {
   bottom: 0;
   opacity: 0.15;
   background-image:
-    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px);
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.1) 20px, rgba(255, 255, 255, 0.1) 40px);
 }
 
 .summary-card.in-progress {
@@ -160,6 +193,7 @@ body {
   margin-bottom: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -266,6 +300,7 @@ body {
   padding: 1.5rem;
   position: sticky;
   top: 1rem;
+  height: fit-content;
 }
 
 .task-status-sidebar h2 {
@@ -296,7 +331,7 @@ body {
   border-radius: 8px;
   padding: 0.75rem;
   margin-bottom: 0.5rem;
-  display: flex;
+  display: grid;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
@@ -306,12 +341,13 @@ body {
   font-size: 0.8rem;
   font-weight: 500;
   color: #334155;
-  flex: 1;
+  grid-column: 1 / span 2;
 }
 
 .task-item .task-actions {
   display: flex;
   gap: 0.25rem;
+  width: fit-content;
 }
 
 .task-item .task-actions button {
@@ -325,8 +361,8 @@ body {
 }
 
 .task-item .task-actions .btn-resolve {
-  background-color: #dcfce7;
-  color: #15803d;
+  background-color: #15803d;
+  color: #dcfce7;
 }
 
 .task-item .task-actions .btn-resolve:hover {
@@ -334,8 +370,8 @@ body {
 }
 
 .task-item .task-actions .btn-remove {
-  background-color: #fee2e2;
-  color: #b91c1c;
+  background-color: #b91c1c;
+  color: #fee2e2;
 }
 
 .task-item .task-actions .btn-remove:hover {
@@ -398,7 +434,44 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .main-content-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+
 @media (max-width: 768px) {
+  .navbar-custom {
+    padding: 0 1rem;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background-color: var(--color-navy);
+    flex-direction: column;
+    padding: 1rem 2rem 1.5rem;
+    gap: 1rem;
+    z-index: 50;
+    border-top: 1px solid #312e81;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
   .ticket-grid {
     grid-template-columns: 1fr !important;
   }
@@ -413,5 +486,28 @@ body {
 
   .footer-grid {
     grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  main {
+    padding: 0 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .summary-card .count {
+    font-size: 2.25rem;
+  }
+
+  .summary-card h3 {
+    font-size: 1rem;
+  }
+
+  .ticket-card .ticket-title {
+    font-size: 0.85rem;
   }
 }

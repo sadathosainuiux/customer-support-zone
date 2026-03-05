@@ -35,7 +35,7 @@ const TicketCard = ({ ticket, onAddToTaskStatus }) => {
                 <span className={getPriorityClass(ticket.priority)}>
                     {ticket.priority}
                 </span>
-                <span className="ticket-assignee">{ticket.assignee}</span>
+                <span className="ticket-assignee">{ticket.customer}</span>
                 <span className="ticket-date">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ const TicketCard = ({ ticket, onAddToTaskStatus }) => {
                         <line x1="8" y1="2" x2="8" y2="6" />
                         <line x1="3" y1="10" x2="21" y2="10" />
                     </svg>
-                    {ticket.date}
+                    {ticket.createdAt}
                 </span>
             </div>
         </div>
