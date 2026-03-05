@@ -62,7 +62,9 @@ function App() {
           }}
         >
           <TicketList
-            tickets={tickets}
+            tickets={tickets.filter(
+              (t) => !resolvedTasks.find((r) => r.id === t.id)
+            )}
             onAddToTaskStatus={handleAddToTaskStatus}
           />
           <TaskStatus
